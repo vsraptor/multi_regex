@@ -35,3 +35,8 @@ The expectation is that incremental search will be faster than a loop that match
 BTW there is option to set upper limit on how many items to select at every step, so if you get too many results you can cap them up.
 
 There is one more option which allows you to start matching after a specific prefix/head, the idea here is to match the head as a normal match and the rest of the sequence using the regex. This way we lower the the number of comparisons dramatically, because the biggest number of results are normally at the beginning
+
+
+----
+
+#### read more in the docs directory ...
