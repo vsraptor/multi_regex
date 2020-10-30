@@ -5,13 +5,13 @@ check the docs directory :
 
 https://github.com/vsraptor/multi_regex/blob/main/docs/multi-regex.ipynb
 
-Multi Sequence REGEX engine
+## Multi Sequence REGEX engine
 
 I have a project where I'm storing Sequences in a graph database which for the outside apps are opaque. So I needed to some way to query the data. I tried a sort of template-search-language, but it quickly became clear it is unmanageable. After some experimenting I decided to adopt Regex-like language for searching.
 
 I found a very nice tutorial for implementing RegEx using finite automata (NFA).
 
-Implementing a Regular Expression Engine
+## Implementing a Regular Expression Engine
 
 Of course this implementation is very basic and is written in java-script, I need one written in python. But second and more important problem is that this engine matches a single string against the regex.
 
@@ -23,10 +23,10 @@ In MSRM the advance is still one-step for the regex, but for every parallel-stat
 
 For example lets see if we search the words file in linux :
 
-   > grep ^w /usr/share/dict/words | wc -l
-   2329
-   > grep ^wh /usr/share/dict/words | wc -l
-   360
+     > grep ^w /usr/share/dict/words | wc -l
+     2329
+     > grep ^wh /usr/share/dict/words | wc -l
+     360
 
 if we match against the following regex /wh.+/, the first step will return 2329 sequences/words (which is alot, for BRM it will be just one), the second step we get back 360.
 
