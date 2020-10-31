@@ -36,6 +36,24 @@ BTW there is option to set upper limit on how many items to select at every step
 
 There is one more option which allows you to start matching after a specific prefix/head, the idea here is to match the head as a normal match and the rest of the sequence using the regex. This way we lower the the number of comparisons dramatically, because the biggest number of results are normally at the beginning
 
+----
+
+Example :
+
+     > from regex_nfa import * 
+     > from seqs_store import *
+     > with open('/usr/share/dict/words') as f : ww = [ l.rstrip() for l in f.readlines()]                                                                                
+     > n = Regex()
+     > n.match(regex='wh..', match_prefix_fun=partial(db_search,seqs=ww))   
+     : ['whys.', 'whip.', 'whom.', 'whew.', 'whit.', 'wham.', 'whir.', 'whoa.', 'when.', 'whet.', 'whey.', 'whim.', 'what.', 'whiz.']
+     > n.match(regex='wh.+', match_prefix_fun=partial(db_search,seqs=ww))                                                                                                 
+     : ['why.', 'who.']
+     > n.match(regex='wh.r..', match_prefix_fun=partial(db_search,seqs=ww))                                                                                               
+     : ['wharfs.', 'whores.', 'whirls.', 'whirrs.', "whir's.", 'wheres.', 'whorls.']
+     > n.match(regex='w(h|o).', match_prefix_fun=partial(db_search,seqs=ww))                                                                                              
+     : ['wok.', 'woo.', 'why.', 'who.', 'wot.', 'wow.', 'woe.', 'won.']
+
+
 
 ----
 
